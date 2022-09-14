@@ -1,0 +1,49 @@
+type: remote_edu
+files:
+- name: main.js
+  visible: true
+  text: |
+    // Use "input()" to input a line from the user
+    // Use "input(str)" to print some text before requesting input
+    // You will need this in the following stages
+    const input = require('sync-input')
+
+
+    function greeting(){
+      console.log("Starting to make a coffee");
+      console.log("Grinding coffee beans");
+      console.log('Boiling water');
+      console.log('Mixing boiled water with crushed coffee beans');
+      console.log('Pouring coffee into the cup');
+      console.log('Pouring some milk into the cup');
+      console.log('Coffee is ready!');
+    }
+    greeting();
+  learner_created: false
+- name: tests.py
+  visible: false
+  text: |
+    from hstest import *
+
+
+    class CoffeeMachineTest(StageTest):
+        @dynamic_test
+        def empty_test(self):
+            p = TestedProgram()
+            p.start()
+            if p.is_finished():
+                return wrong("Your program should not terminate "
+                             "immediately after starting")
+            return correct()
+
+
+    if __name__ == '__main__':
+        CoffeeMachineTest().run_tests()
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/17041#comment
+check_profile: hyperskill_node_javascript
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Wed, 14 Sep 2022 12:43:28 UTC
+record: -1
